@@ -121,11 +121,15 @@ public class Partida implements ObligatorioPartida{
             JOptionPane.showMessageDialog(null, "Resultado\nTu elo a subido en: " + puntT);
             tuElo = tuElo + puntT;
             for (Usuario datos : tusDatos) {
-                datos.setElo(tuElo);
+                datos.rangElo(tuElo);
             }
-        } else {
+        } else{
             puntT = 20 - puntT;
             JOptionPane.showMessageDialog(null, "Resultado\nTu elo a bajado en: " + puntT);
+            tuElo=tuElo-puntT;
+            for (Usuario datos : tusDatos) {
+                datos.rangElo(tuElo);
+            }
         }
         do {
             try {

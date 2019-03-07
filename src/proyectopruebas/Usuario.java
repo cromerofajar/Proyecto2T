@@ -43,7 +43,26 @@ public class Usuario{
     public int getElo() {
         return elo;
     }
-
+    public void rangElo(int elo){
+        this.elo=elo;
+        if (elo<=100){
+            this.rango="bronce";
+        }else if(elo>100 && elo<=200){
+            this.rango="plata";
+        }else if(elo>200 && elo<=300){
+            this.rango="oro";
+        }else if(elo>300 && elo<=400){
+            this.rango="platino";
+        }else if(elo>400 && elo<=500){
+            this.rango="diamante";
+        }else if(elo>500 && elo<=600){
+            this.rango="maestro";
+        }else if(elo>600 && elo<=700){
+            this.rango="gran maestro";
+        }else if(elo>700){
+            this.rango="aspirante";
+        }
+    }
     @Override
     public String toString() {
         return "Jugador"+"\nnombre=" + nombre + "\nrango=" + rango + "\nelo=" + elo;
