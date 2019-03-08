@@ -92,10 +92,14 @@ public class Partida implements ObligatorioPartida{
         int tuElo = 0;
         String comprobante;
         int puntF, puntV, puntA, puntM, puntAs, puntT = 0;
+        String nombre=PedirDatos.texto("Nombre del usuario que jugo la partida");
         for (Usuario datos : tusDatos) {
+            if(datos.getNombre().equals(nombre)){
             tuElo = datos.getElo();
             tuRango = datos.getRango();
+            }
         }
+        
         Partida parti = new Partida();
         parti.setResultado(PedirDatos.texto("Introduzca victoria o derrota"));
         comprobante = parti.getResultado().toLowerCase();
@@ -121,14 +125,18 @@ public class Partida implements ObligatorioPartida{
             JOptionPane.showMessageDialog(null, "Resultado\nTu elo a subido en: " + puntT);
             tuElo = tuElo + puntT;
             for (Usuario datos : tusDatos) {
+                if(datos.getNombre().equals(nombre)){
                 datos.rangElo(tuElo);
+                }
             }
         } else{
             puntT = 20 - puntT;
             JOptionPane.showMessageDialog(null, "Resultado\nTu elo a bajado en: " + puntT);
             tuElo=tuElo-puntT;
             for (Usuario datos : tusDatos) {
+                if(datos.getNombre().equals(nombre)){
                 datos.rangElo(tuElo);
+                }
             }
         }
         do {
@@ -138,17 +146,15 @@ public class Partida implements ObligatorioPartida{
                     case 1:
                        PrintWriter fich = null;
                         String nom = "ultima";
-                        String nombre=PedirDatos.texto("Nombre del usuario que jugo la partida");
+                        
 
                         if (tusDatos.isEmpty() == true) {
                             JOptionPane.showMessageDialog(null, "No existen usuarios");
                         } else {
-                            
-                            fich = new PrintWriter(new FileWriter(nombre+nom + ".txt"));
                             for (Usuario al : tusDatos) {
-                                System.out.println(al);
                                 if(nombre.equals(al.nombre)){
-                                        
+                                        fich = new PrintWriter(new FileWriter(nombre+nom + ".txt"));
+                                        JOptionPane.showMessageDialog(null,al);
                                         fich.println(al);
                                         fich.println(parti);
                                         fich.close();
@@ -177,7 +183,7 @@ public class Partida implements ObligatorioPartida{
             }
             sc.close();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Partida.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,"Usuario no existente o no tiene partidas guardadas");
         }
     }
     @Override

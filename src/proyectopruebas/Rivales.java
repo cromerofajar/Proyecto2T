@@ -1,7 +1,7 @@
 package proyectopruebas;
 
 import Utilidades.PedirDatos;
-import java.io.File;
+
 import java.util.ArrayList;
 
 
@@ -19,6 +19,9 @@ public class Rivales {
         if(riva.size()>0){
         riva.clear();
         }
+        String nombre=PedirDatos.texto("Nombre del usuario para el que quieres crear rivales");
+        for(Usuario datos:tusDatos){
+            if(datos.getNombre().equals(nombre)){
         for(int i=0;i<=4;i++){
             
         if(obx.elo<=100){
@@ -108,6 +111,8 @@ public class Rivales {
             asistencias=(int)(Math.random()*12);
             Rivales riv=new Rivales(rango,elo,farmeo,vision,asesinatos,muertes,asistencias);
             riva.add(riv);
+        }
+        }
         }
         }
         

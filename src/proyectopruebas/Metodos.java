@@ -1,8 +1,10 @@
 package proyectopruebas;
 
 import Utilidades.PedirDatos;
+import java.io.File;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -11,10 +13,17 @@ import javax.swing.JOptionPane;
 public class Metodos {
     
     public void crearUsuario(ArrayList<Usuario>lista){
+        
         String nombre=PedirDatos.texto("Introduce tu nombre de Usuario");
+        for(Usuario list:lista){
+            while(list.nombre.equals(nombre)){
+                nombre=PedirDatos.texto("Ya existe un usuario con ese nombre");
+            }
+        }
+        String contraseña=PedirDatos.texto("Introduce contraseña");
         String rango=PedirDatos.texto("Introduce tu rango");
         int elo=PedirDatos.entero("Introduce tu elo actual");
-        Usuario al= new Usuario(nombre,rango,elo);
+        Usuario al= new Usuario(nombre,contraseña,rango,elo);
         lista.add(al);
     }
     
@@ -168,15 +177,20 @@ public class Metodos {
         return puntuacion;
     }
     
-    public void borrarUser(String nombre,ArrayList<Usuario>lista){
+    public void borrarUser(String nombre,String contraseña,ArrayList<Usuario>lista){
     if(lista.isEmpty()==true)
-        JOptionPane.showMessageDialog(null,"Introduzca usuario");
+        JOptionPane.showMessageDialog(null,"Introduzca usuarios");
     else{
     for(Usuario al:lista){
-    if(nombre.equalsIgnoreCase(al.getNombre())){
+    if(nombre.equals(al.getNombre())){
+        if(contraseña.equals(al.getContraseña())){
     lista.remove(al);
+    String nombrefich=nombre+"ultima.txt";
+    File fich=new File(nombrefich);
+    fich.delete();
+    JOptionPane.showMessageDialog(null,"Usuario "+nombre+ " Borrado");
     break;
-    }}}}
+        }}}}}
     
     public void verUsers(ArrayList<Usuario>lista){
     if(lista.isEmpty()==true)

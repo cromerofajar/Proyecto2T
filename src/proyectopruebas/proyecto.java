@@ -24,7 +24,7 @@ public class proyecto {
         int opciones;
         
         do {
-            opciones = Integer.parseInt(JOptionPane.showInputDialog(null, "*****Introduzca el numero que correcponda con su eleccion*****\n\n1ºCrear usuario\n2ºVer usuarios\n3ºBorrar un Usuario por su nombre\n4ºCrear rivales\n5ºCalcular elo partida\n6ºVer Ultima Partida Guardada de un jugador\n7ºSalir"));
+            opciones = Integer.parseInt(JOptionPane.showInputDialog(null, "*****Introduzca el numero que correcponda con su eleccion*****\n\n1ºAñadir usuario\n2ºVer usuarios\n3ºBorrar un Usuario por su nombre\n4ºCrear rivales\n5ºCalcular elo partida\n6ºVer Ultima Partida Guardada de un jugador\n7ºSalir"));
             switch (opciones) {
                 case 1:
                     obxm.crearUsuario(tusDatos);
@@ -34,7 +34,8 @@ public class proyecto {
                     break;
                 case 3:
                     String nomeUsuario = JOptionPane.showInputDialog(null, "Ponga el usuario que desea eliminar");
-                    obxm.borrarUser(nomeUsuario, tusDatos);
+                    String contraseña=PedirDatos.texto("Introduce la contraseña del usuario");
+                    obxm.borrarUser(nomeUsuario,contraseña, tusDatos);
                     break;
                 case 4:
                     obxR.crearRivalesAleatorio(tusDatos, tusRivales);
