@@ -84,7 +84,7 @@ public class Partida implements ObligatorioPartida{
         return asistencias;
     }
     @Override
-    public void resultadoPartida(ArrayList<Rivales> riv, ArrayList<Usuario> tusDatos, ArrayList<Partida> part) { //Metodo que nos calcula la puntuacion de la partida que recive los ArrayList de tipo Rivales, Usuario y Partida.
+    public void resultadoPartida(ArrayList<Rivales> riv, ArrayList<Usuario> tusDatos, ArrayList<Partida> part) throws Excepciones.NoUsuarios{ //Metodo que nos calcula la puntuacion de la partida que recive los ArrayList de tipo Rivales, Usuario y Partida.
         int opciones=0; //Variable numerica empleada en el switch case de guardar partida.
         int tuElo = 0; //Variable numerica que lleva tu Elo y usada para calcular tu resultado final.
         String comprobante; //Variable de texto usada para el selector de victoria/derrota.
@@ -144,7 +144,7 @@ public class Partida implements ObligatorioPartida{
                         
 
                         if (tusDatos.isEmpty() == true) { //If que en caso de no tener usuarios no permitira guardar la partida.
-                            JOptionPane.showMessageDialog(null, "No existen usuarios");
+                            throw new Excepciones.NoUsuarios("No hay usuarios para visualizar");
                         } else {
                             for (Usuario al : tusDatos) { //Bucle for each que recorre el ArrayList de Usuarios.
                                 if(nombre.equals(al.nombre)){ //If que en caso de encontrar el nombre de usuario nos guarde la partida.

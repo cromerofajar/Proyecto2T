@@ -177,9 +177,9 @@ public class Metodos {
         return puntuacion;
     }
     
-    public void borrarUser(String nombre,String contraseña,ArrayList<Usuario>lista){
+    public void borrarUser(String nombre,String contraseña,ArrayList<Usuario>lista) throws Excepciones.NoUsuarios{
     if(lista.isEmpty()==true)
-        JOptionPane.showMessageDialog(null,"Introduzca usuarios");
+        throw new Excepciones.NoUsuarios("No hay usuarios que borrar");
     else{
     for(Usuario al:lista){
     if(nombre.equals(al.getNombre())){
@@ -192,9 +192,9 @@ public class Metodos {
     break;
         }}}}}
     
-    public void verUsers(ArrayList<Usuario>lista){
+    public void verUsers(ArrayList<Usuario>lista) throws Excepciones.NoUsuarios{
     if(lista.isEmpty()==true)
-        JOptionPane.showMessageDialog(null,"No existen usuarios");
+        throw new Excepciones.NoUsuarios("No hay usuarios para visualizar");
     else{
     for(Usuario al:lista){
     JOptionPane.showMessageDialog(null,al);
