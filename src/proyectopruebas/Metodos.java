@@ -12,19 +12,19 @@ import javax.swing.JOptionPane;
  */
 public class Metodos {
     
-    public void crearUsuario(ArrayList<Usuario>lista){
+    public void crearUsuario(ArrayList<Usuario>lista){ //Metodo que recive el un ArrayList de tipo Usuario
         
-        String nombre=PedirDatos.texto("Introduce tu nombre de Usuario");
-        for(Usuario list:lista){
-            while(list.nombre.equals(nombre)){
+        String nombre=PedirDatos.texto("Introduce tu nombre de Usuario"); //Variable de tipo String que se le introduce el nombre de usuario
+        for(Usuario list:lista){ //Bucle For each que recorre el ArrayList de tipo Usuario.
+            while(list.nombre.equals(nombre)){ //Bucle while que impide nombres repetidos para evitar duplicados de usuarios.
                 nombre=PedirDatos.texto("Ya existe un usuario con ese nombre");
             }
         }
-        String contraseña=PedirDatos.texto("Introduce contraseña");
-        String rango=PedirDatos.texto("Introduce tu rango");
-        int elo=PedirDatos.entero("Introduce tu elo actual");
-        Usuario al= new Usuario(nombre,contraseña,rango,elo);
-        lista.add(al);
+        String contraseña=PedirDatos.texto("Introduce contraseña"); //Variable de tipo String que lleva la contraseña del usuario.
+        String rango=PedirDatos.texto("Introduce tu rango"); //Variable de tipo String que lleva el rango del usuario.
+        int elo=PedirDatos.entero("Introduce tu elo actual"); //Variable de tipo Int que lleva el Elo del usuario.
+        Usuario al= new Usuario(nombre,contraseña,rango,elo); //Creacion de un objeto usuario con los datos dados.
+        lista.add(al); //Añadido del objeto Usuario al ArrayList de usuarios.
     }
     
     

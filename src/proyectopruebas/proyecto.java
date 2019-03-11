@@ -17,15 +17,12 @@ public class proyecto {
         ArrayList<Partida> tusPartidas = new ArrayList<>();
         Metodos obxm = new Metodos();
         Partida obx = new Partida();
-        Usuario obxT = new Usuario();
         Rivales obxR = new Rivales();
-//        obxR.crearRivalesAleatorio(tusDatos, tusRivales);
-//        obx.resultadoPartida(tusRivales, tusDatos, tusPartidas);
-        int opciones;
+        int opciones; //variable de tipo int.
         
-        do {
-            opciones = Integer.parseInt(JOptionPane.showInputDialog(null, "*****Introduzca el numero que correcponda con su eleccion*****\n\n1ºAñadir usuario\n2ºVer usuarios\n3ºBorrar un Usuario por su nombre\n4ºCrear rivales\n5ºCalcular elo partida\n6ºVer Ultima Partida Guardada de un jugador\n7ºSalir"));
-            switch (opciones) {
+        do { //Bucle do while que realiza la funcion de menu del programa
+            opciones = Integer.parseInt(JOptionPane.showInputDialog(null, "*****Introduzca el numero que corresponda con su eleccion*****\n\n1ºAñadir usuario\n2ºVer usuarios\n3ºBorrar un Usuario por su nombre\n4ºCrear rivales\n5ºCalcular elo partida\n6ºVer Ultima Partida Guardada de un jugador\n7ºSalir")); //Asignacion de la variable opciones, a la vez hace la funcion de texto del menu.
+            switch (opciones) { //Switch case que realiza las funcion de menu
                 case 1:
                     obxm.crearUsuario(tusDatos);
                     break;
@@ -53,7 +50,7 @@ public class proyecto {
                 case 7:
                     System.exit(0);
             }
-        }while(opciones!=0);
+        }while(opciones!=0); //fin del bucle do while
     
     }
 }

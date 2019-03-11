@@ -52,9 +52,9 @@ public class Usuario{
     public int getElo() {
         return elo;
     }
-    public void rangElo(int elo){
+    public void rangElo(int elo){ //Metodo que recibe tu Elo tras la partida que te asigna tu nuevo elo y te cambia el rango en caso de cumplir el requisito.
         this.elo=elo;
-        if (elo<=100){
+        if (elo<=100){ //If else con las condiciones de cambio de rango.
             this.rango="bronce";
         }else if(elo>100 && elo<=200){
             this.rango="plata";
@@ -73,7 +73,7 @@ public class Usuario{
         }
     }
     @Override
-    public String toString() {
+    public String toString() { //toString de los datos del Usuario excepto la contraseña.
         return "Jugador"+"\nnombre=" + nombre + "\nrango=" + rango + "\nelo=" + elo;
     }
     

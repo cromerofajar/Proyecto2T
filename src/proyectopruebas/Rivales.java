@@ -15,14 +15,14 @@ public class Rivales {
     int farmeo, vision,asesinatos,muertes,asistencias;
     
     public void crearRivalesAleatorio(ArrayList<Usuario>tusDatos,ArrayList<Rivales>riva){
-        Usuario obx=tusDatos.get(0);
-        if(riva.size()>0){
+        Usuario obx=tusDatos.get(0); //Creacion de un objeto de tipo Usuario
+        if(riva.size()>0){ //If que en caso de tener rivales en el el ArrayList de Rivales los borra
         riva.clear();
         }
-        String nombre=PedirDatos.texto("Nombre del usuario para el que quieres crear rivales");
-        for(Usuario datos:tusDatos){
-            if(datos.getNombre().equals(nombre)){
-        for(int i=0;i<=4;i++){
+        String nombre=PedirDatos.texto("Nombre del usuario para el que quieres crear rivales"); //Variable de tipo String que se le asigna el nombre de usuario.
+        for(Usuario datos:tusDatos){ //Bucle for each del ArrayList de tipo Usuario
+            if(datos.getNombre().equals(nombre)){ //If que se ejecuta al encontrar el nombre del usuario en el ArrayList
+        for(int i=0;i<=4;i++){ //Bucle For que nos crea a 4 rivales en funcion del elo del usuario introducido.
             
         if(obx.elo<=100){
             rango="bronce";
@@ -118,30 +118,30 @@ public class Rivales {
         
     }
     
-    public void crearRivalesManual(ArrayList<Usuario>tusdatos){
-        for(int i=0;i==4;i++){
-            rango=PedirDatos.texto("Introduce el rango de tu rival");
-            switch (rango.toLowerCase()){
-                case "bronce": elo=(int)(Math.random()*100);
-                               break;
-                case "plata": elo=(int)(Math.random()*100)+100;
-                              break;
-                case "oro": elo=(int)(Math.random()*100)+200;
-                            break;
-                case "platino": elo=(int)(Math.random()*100)+300;
-                                break;
-                case "diamante": elo=(int)(Math.random()*100)+400;
-                                 break;
-                case "maestro": elo=(int)(Math.random()*100)+500;
-                                break;
-                case "gran maestro": elo=(int)(Math.random()*100)+600;
-                                     break;
-                case "aspirante": elo=(int)(Math.random()*100)+700;
-                                  break;
-            }
-        }
-        
-    }
+//    public void crearRivalesManual(ArrayList<Usuario>tusdatos){
+//        for(int i=0;i==4;i++){
+//            rango=PedirDatos.texto("Introduce el rango de tu rival");
+//            switch (rango.toLowerCase()){
+//                case "bronce": elo=(int)(Math.random()*100);
+//                               break;
+//                case "plata": elo=(int)(Math.random()*100)+100;
+//                              break;
+//                case "oro": elo=(int)(Math.random()*100)+200;
+//                            break;
+//                case "platino": elo=(int)(Math.random()*100)+300;
+//                                break;
+//                case "diamante": elo=(int)(Math.random()*100)+400;
+//                                 break;
+//                case "maestro": elo=(int)(Math.random()*100)+500;
+//                                break;
+//                case "gran maestro": elo=(int)(Math.random()*100)+600;
+//                                     break;
+//                case "aspirante": elo=(int)(Math.random()*100)+700;
+//                                  break;
+//            }
+//        }
+//        
+//    }
 
     public Rivales(String rango, int elo, int farmeo, int vision, int asesinatos, int muertes, int asistencias) {
         this.rango = rango;
