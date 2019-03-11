@@ -1,7 +1,9 @@
 package proyectopruebas;
 
+import Excepciones.NoUsuarios;
 import Utilidades.PedirDatos;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -11,7 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class proyecto {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoUsuarios, IOException {
         ArrayList<Usuario> tusDatos = new ArrayList<>();
         ArrayList<Rivales> tusRivales = new ArrayList<>();
         ArrayList<Partida> tusPartidas = new ArrayList<>();
