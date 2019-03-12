@@ -2,14 +2,8 @@ package proyectopruebas;
 
 import Utilidades.PedirDatos;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
@@ -27,20 +21,10 @@ public class Metodos {
                 nombre=PedirDatos.texto("Ya existe un usuario con ese nombre");
             }
         }
-        String contraseña=PedirDatos.texto("Introduce contraseña"); //Variable de tipo String que lleva la contraseña del usuario.
         String rango=PedirDatos.texto("Introduce tu rango"); //Variable de tipo String que lleva el rango del usuario.
         int elo=PedirDatos.entero("Introduce tu elo actual"); //Variable de tipo Int que lleva el Elo del usuario.
-        Usuario al= new Usuario(nombre,contraseña,rango,elo); //Creacion de un objeto usuario con los datos dados.
+        Usuario al= new Usuario(nombre,rango,elo); //Creacion de un objeto usuario con los datos dados.
         lista.add(al); //Añadido del objeto Usuario al ArrayList de usuarios.
-        PrintWriter fich = null; //Para poder escribir en el fichero primero creamos una variable fich de tipo PrintWriter.
-            for (Usuario user: lista) { //Bucle for each que recorre el ArrayList de Usuarios.
-                if(nombre.equals(user.nombre)){ //If que en caso de encontrar el nombre de usuario nos guarde la partida.
-                    fich = new PrintWriter(new FileWriter("Usuarios.txt"),true); //creacion del fichero empleando el nombre de usuario para el String nom.
-                    JOptionPane.showMessageDialog(null,user); //JOptionPane que nos muestra nuestras estadisticas tras la partida.
-                    fich.println(user); //Escritura en el fichero de los datos del usuario.
-                    fich.close(); //Cierre del fichero.
-                }
-            }
     }
     
     
@@ -193,36 +177,26 @@ public class Metodos {
         return puntuacion;
     }
     
-    public void borrarUser(String nombre,String contraseña,ArrayList<Usuario>lista) throws Excepciones.NoUsuarios{
+    public void borrarUser(String nombre,ArrayList<Usuario>lista) throws Excepciones.NoUsuarios{
     if(lista.isEmpty()==true)
-        throw new Excepciones.NoUsuarios("No hay usuarios que borrar");
+        throw new Excepciones.NoUsuarios("Usuarios no conectado");
     else{
-    for(Usuario al:lista){
-    if(nombre.equals(al.getNombre())){
-        if(contraseña.equals(al.getContraseña())){
-    lista.remove(al);
-    String nombrefich=nombre+"ultima.txt";
-    File fich=new File(nombrefich);
-    fich.delete();
-    JOptionPane.showMessageDialog(null,"Usuario "+nombre+ " Borrado");
-    break;
-        }}}}}
+        for(Usuario al:lista){
+        if(nombre.equals(al.getNombre())){
+        lista.remove(al);
+        String nombrefich=nombre+"ultima.txt";
+        File fich=new File(nombrefich);
+        fich.delete();
+        JOptionPane.showMessageDialog(null,"Usuario "+nombre+ " Borrado");
+        break;
+        }}
+
+   }}
     
-    public void verUsers(File fich){
-        Scanner sc=null;
-        try {
-            sc=new Scanner(fich);
-            while (sc.hasNextLine()){
-            System.out.println(sc.nextLine());
-            }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            sc.close();
+    public void verUsers(ArrayList<Usuario> dat){
+        for(Usuario datos:dat){
+            System.out.println(datos);
         }
     }
-    
-    public void borrarTUsuarios(File fich){
-        fich.delete();
-    }
+
 }

@@ -151,7 +151,7 @@ public class Partida implements ObligatorioPartida{
                                         fich = new PrintWriter(new FileWriter(nombre+nom + ".txt")); //creacion del fichero empleando el nombre de usuario para el String nom.
                                         JOptionPane.showMessageDialog(null,al); //JOptionPane que nos muestra nuestras estadisticas tras la partida.
                                         fich.println(al); //Escritura en el fichero de los datos del usuario.
-                                        fich.println(parti); //Escrtiura den el fcihero de los datos de la partida.
+                                        fich.println(parti.toString()); //Escrtiura den el fcihero de los datos de la partida.
                                         fich.close(); //Cierre del fichero.
                                 }
                             }
@@ -183,6 +183,6 @@ public class Partida implements ObligatorioPartida{
     }
     @Override
     public String toString() { //toString de los datos de la partida.
-        return "\nPartida" + "\nresultado=" + resultado + "\nfarmeo=" + farmeo + "\nvision=" + vision + "\nasesinatos=" + asesinatos + "\nmuertes=" + muertes + "\nasistencias=" + asistencias;
-    } 
+        return "\nPartida" + resultado + "\nfarmeo=" + farmeo + "\nvision=" + vision + "\nasesinatos=" + asesinatos + "\nmuertes=" + muertes + "\nasistencias=" + asistencias;
+    }
 }

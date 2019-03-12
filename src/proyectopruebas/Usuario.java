@@ -6,7 +6,7 @@ package proyectopruebas;
  * @author cromerofajar
  */
 public class Usuario{
-    String nombre, rango,contraseña;
+    String nombre, rango;
     int elo;
 
     public Usuario() {
@@ -14,19 +14,14 @@ public class Usuario{
     }
 
 
-    public Usuario(String nombre,String contraseña, String rango, int elo) {
+    public Usuario(String nombre, String rango, int elo) {
         this.nombre = nombre;
-        this.contraseña=contraseña;
         this.rango = rango;
         this.elo = elo;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
     }
 
     public void setRango(String rango) {
@@ -39,10 +34,6 @@ public class Usuario{
     
     public String getNombre() {
         return nombre;
-    }
-
-    public String getContraseña() {
-        return contraseña;
     }
 
     public String getRango() {
