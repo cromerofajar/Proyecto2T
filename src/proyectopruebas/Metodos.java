@@ -32,6 +32,7 @@ public class Metodos {
     if(lista.isEmpty()==true)
         throw new Excepciones.NoUsuarios("Usuarios no conectado");
     else{
+        int chispa=0;
         for(Usuario al:lista){
         if(nombre.equals(al.getNombre())){
         lista.remove(al);
@@ -39,8 +40,12 @@ public class Metodos {
         File fich=new File(nombrefich);
         fich.delete();
         JOptionPane.showMessageDialog(null,"Usuario "+nombre+ " Borrado");
+        chispa=1;
         break;
         }}
+        if(chispa==0){
+            JOptionPane.showMessageDialog(null,"No hay usuarios con ese nombre");
+        }
 
    }}
     

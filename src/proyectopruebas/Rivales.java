@@ -3,6 +3,7 @@ package proyectopruebas;
 import Utilidades.PedirDatos;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -20,10 +21,11 @@ public class Rivales {
         riva.clear();
         }
         String nombre=PedirDatos.texto("Nombre del usuario para el que quieres crear rivales"); //Variable de tipo String que se le asigna el nombre de usuario.
+        int chispa=0;
         for(Usuario datos:tusDatos){ //Bucle for each del ArrayList de tipo Usuario
             if(datos.getNombre().equals(nombre)){ //If que se ejecuta al encontrar el nombre del usuario en el ArrayList
         for(int i=0;i<=4;i++){ //Bucle For que nos crea a 4 rivales en funcion del elo del usuario introducido.
-            
+            chispa=1;
         if(obx.elo<=100){
             rango="bronce";
             elo=(int)(Math.random()*100);
@@ -114,6 +116,12 @@ public class Rivales {
         }
         }
         }
+        }
+        if(chispa==0){
+            JOptionPane.showMessageDialog(null,"No hay usuarios con ese nombre");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Rivales creados con éxito");
         }
         
     }

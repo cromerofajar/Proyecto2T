@@ -38,7 +38,6 @@ public class proyecto {
                     break;
                 case 4:
                     obxR.crearRivalesAleatorio(tusDatos, tusRivales);
-                    JOptionPane.showMessageDialog(null, "Rivales creados con éxito");
                     break;
                 case 5:
                     obx.resultadoPartida(tusRivales, tusDatos, tusPartidas);

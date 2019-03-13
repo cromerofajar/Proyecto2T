@@ -43,12 +43,14 @@ public class Partida implements ObligatorioPartida{
         String comprobante; //Variable de texto usada para el selector de victoria/derrota.
         int puntF, puntV, puntA, puntM, puntAs, puntT = 0; //Variables numericas de puntuación usadas para calcular la perdida o ganancia de Elo.
         String nombre=PedirDatos.texto("Nombre del usuario que jugo la partida"); //Variable de texto usada para el guardado de archivos.
+        int chispa=0;
         for (Usuario datos : tusDatos) { //Bucle for que asigna tu Elo de ese momento a la variable tuElo.
             if(datos.getNombre().equals(nombre)){
             tuElo = datos.getElo();
+            chispa=1;
             }
         }
-        
+        if(chispa==1){
         Partida parti = new Partida(); //Creacion de un objeto tipo Partida para la asignacion de los valores de la partida.
         parti.setResultado(PedirDatos.texto("Introduzca victoria o derrota")); //Asignacion de valor derrota o victoria al resultado de la partida
         comprobante = parti.getResultado().toLowerCase();// Asignacion a comprobante del resultado de la la partida usando toLowerCase para asegurarnos de que quede en minuscula
@@ -120,6 +122,9 @@ public class Partida implements ObligatorioPartida{
             }
 
         } while (opciones != 2); //Final del bucle do while.
+        }else{
+            JOptionPane.showMessageDialog(null,"No hay usuarios con ese nombre");
+        }
 
     }
     @Override
