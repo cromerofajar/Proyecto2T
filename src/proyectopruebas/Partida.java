@@ -190,6 +190,6 @@ public class Partida implements ObligatorioPartida{
     
     @Override
     public String toString() { //toString de los datos de la partida.
-        return "\nPartida" + resultado + "\nfarmeo=" + farmeo + "\nvision=" + vision + "\nasesinatos=" + asesinatos + "\nmuertes=" + muertes + "\nasistencias=" + asistencias;
+        return "\nPartida= " + resultado + "\nfarmeo=" + farmeo + "\nvision=" + vision + "\nasesinatos=" + asesinatos + "\nmuertes=" + muertes + "\nasistencias=" + asistencias;
     }
 }

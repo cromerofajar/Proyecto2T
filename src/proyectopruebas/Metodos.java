@@ -18,7 +18,7 @@ public class Metodos {
         String nombre=PedirDatos.texto("Introduce tu nombre de Usuario"); //Variable de tipo String que se le introduce el nombre de usuario
         for(Usuario list:lista){ //Bucle For each que recorre el ArrayList de tipo Usuario.
             while(list.nombre.equals(nombre)){ //Bucle while que impide nombres repetidos para evitar duplicados de usuarios.
-                nombre=PedirDatos.texto("Ya existe un usuario con ese nombre");
+                nombre=PedirDatos.texto("Ya existe un usuario con ese nombre\nPonga un nuevo nombre");
             }
         }
         String rango=PedirDatos.texto("Introduce tu rango"); //Variable de tipo String que lleva el rango del usuario.
