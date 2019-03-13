@@ -36,53 +36,6 @@ public class Partida implements ObligatorioPartida{
         this.asistencias = asistencias;
     }
 
-    public void setResultado(String resultado) {
-        this.resultado = resultado;
-    }
-
-    public void setMinions(int minions) {
-        this.farmeo = minions;
-    }
-
-    public void setVision(int vision) {
-        this.vision = vision;
-    }
-
-    public void setAsesinatos(int asesinatos) {
-        this.asesinatos = asesinatos;
-    }
-
-    public void setMuertes(int muertes) {
-        this.muertes = muertes;
-    }
-
-    public void setAsistencias(int asistencias) {
-        this.asistencias = asistencias;
-    }
-
-    public String getResultado() {
-        return resultado;
-    }
-
-    public int getMinions() {
-        return farmeo;
-    }
-
-    public int getVision() {
-        return vision;
-    }
-
-    public int getAsesinatos() {
-        return asesinatos;
-    }
-
-    public int getMuertes() {
-        return muertes;
-    }
-
-    public int getAsistencias() {
-        return asistencias;
-    }
     @Override
     public void resultadoPartida(ArrayList<Rivales> riv, ArrayList<Usuario> tusDatos, ArrayList<Partida> part) throws Excepciones.NoUsuarios{ //Metodo que nos calcula la puntuacion de la partida que recive los ArrayList de tipo Rivales, Usuario y Partida.
         int opciones=0; //Variable numerica empleada en el switch case de guardar partida.
@@ -181,6 +134,55 @@ public class Partida implements ObligatorioPartida{
             JOptionPane.showMessageDialog(null,"Usuario no existente o no tiene partidas guardadas");
         }
     }
+    
+    public void setResultado(String resultado) {
+        this.resultado = resultado;
+    }
+
+    public void setMinions(int minions) {
+        this.farmeo = minions;
+    }
+
+    public void setVision(int vision) {
+        this.vision = vision;
+    }
+
+    public void setAsesinatos(int asesinatos) {
+        this.asesinatos = asesinatos;
+    }
+
+    public void setMuertes(int muertes) {
+        this.muertes = muertes;
+    }
+
+    public void setAsistencias(int asistencias) {
+        this.asistencias = asistencias;
+    }
+
+    public String getResultado() {
+        return resultado;
+    }
+
+    public int getMinions() {
+        return farmeo;
+    }
+
+    public int getVision() {
+        return vision;
+    }
+
+    public int getAsesinatos() {
+        return asesinatos;
+    }
+
+    public int getMuertes() {
+        return muertes;
+    }
+
+    public int getAsistencias() {
+        return asistencias;
+    }
+    
     @Override
     public String toString() { //toString de los datos de la partida.
         return "\nPartida" + resultado + "\nfarmeo=" + farmeo + "\nvision=" + vision + "\nasesinatos=" + asesinatos + "\nmuertes=" + muertes + "\nasistencias=" + asistencias;

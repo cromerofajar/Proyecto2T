@@ -50,7 +50,7 @@ public class proyecto {
                     obx.verUltimaPartidaguardada(f);
                     break;
                 case 7:
-                    String salir=PedirDatos.texto("Desea salir?\n Esto borrara todos los ficheros");
+                    String salir=PedirDatos.texto("Desea salir?");
                     
                     if(salir.equalsIgnoreCase("si")){
                         System.exit(0);

@@ -27,7 +27,28 @@ public class Metodos {
         lista.add(al); //Añadido del objeto Usuario al ArrayList de usuarios.
     }
     
+       
+    public void borrarUser(String nombre,ArrayList<Usuario>lista) throws Excepciones.NoUsuarios{
+    if(lista.isEmpty()==true)
+        throw new Excepciones.NoUsuarios("Usuarios no conectado");
+    else{
+        for(Usuario al:lista){
+        if(nombre.equals(al.getNombre())){
+        lista.remove(al);
+        String nombrefich=nombre+"ultima.txt";
+        File fich=new File(nombrefich);
+        fich.delete();
+        JOptionPane.showMessageDialog(null,"Usuario "+nombre+ " Borrado");
+        break;
+        }}
+
+   }}
     
+    public void verUsers(ArrayList<Usuario> dat){
+        for(Usuario datos:dat){
+            System.out.println(datos);
+        }
+    } 
     
     public int mediaFarmeo(ArrayList<Partida>part,ArrayList<Rivales>riv){
         int puntuacion=0;
@@ -176,27 +197,6 @@ public class Metodos {
         }
         return puntuacion;
     }
-    
-    public void borrarUser(String nombre,ArrayList<Usuario>lista) throws Excepciones.NoUsuarios{
-    if(lista.isEmpty()==true)
-        throw new Excepciones.NoUsuarios("Usuarios no conectado");
-    else{
-        for(Usuario al:lista){
-        if(nombre.equals(al.getNombre())){
-        lista.remove(al);
-        String nombrefich=nombre+"ultima.txt";
-        File fich=new File(nombrefich);
-        fich.delete();
-        JOptionPane.showMessageDialog(null,"Usuario "+nombre+ " Borrado");
-        break;
-        }}
 
-   }}
-    
-    public void verUsers(ArrayList<Usuario> dat){
-        for(Usuario datos:dat){
-            System.out.println(datos);
-        }
-    }
 
 }
